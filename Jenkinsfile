@@ -24,10 +24,9 @@
             sh 'node --version'
             sh 'npm --version'
             sh 'yarn --version'
-            sh "npm run build-image"
-            sh "docker push ${IMAGE_TAG}"
-            sh "docker tag ${IMAGE_TAG} ${LATEST_IMAGE_TAG}"
-            sh "docker push ${LATEST_IMAGE_TAG}"
+            sh "yarn install --frozen-lockfile"
+            sh "yarn tsc"
+            sh "yarn build:backend --config ../../app-config.yaml"
         }
     }
  }
