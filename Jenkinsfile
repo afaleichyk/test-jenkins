@@ -4,7 +4,7 @@
     env.DOCKER_TOOL = "Docker-20.10.8"
     env.DOCKER_HOME = "${tool env.DOCKER_TOOL}"
 
-    env.NODEJS_TOOL = "node16.14.2"
+    env.NODEJS_TOOL = "node16.14"
     env.NODEJS_HOME = "${tool env.NODEJS_TOOL}"
 
     stage('scm') {
