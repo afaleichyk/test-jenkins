@@ -24,6 +24,7 @@
             sh 'node --version'
             sh 'npm --version'
             sh 'yarn --version'
+            sh 'yarn install --frozen-lockfile'
             sh 'npm run build:backend'
             sh "npm run build-image --"
         }
