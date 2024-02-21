@@ -24,7 +24,6 @@
             sh 'node --version'
             sh 'npm --version'
             sh 'yarn --version'
-            sh "yarn install --frozen-lockfile"
             sh "yarn tsc"
             sh "yarn build:backend --config ../../app-config.yaml"
         }
