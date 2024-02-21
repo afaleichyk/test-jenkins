@@ -24,7 +24,6 @@
             sh 'node --version'
             sh 'npm --version'
             sh 'yarn --version'
-            sh "yarn tsc"
             sh "yarn build:backend --config ../../app-config.yaml"
         }
     }
