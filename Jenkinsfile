@@ -6,6 +6,10 @@
 
     env.NODEJS_TOOL = "node16.14"
     env.NODEJS_HOME = "${tool env.NODEJS_TOOL}"
+
+    stage('scm') {
+        checkout scm
+    }
     
     stage('build') {
         def AWS_REGION = ""
