@@ -1,0 +1,87 @@
+organization:
+  name: IDT
+
+app:
+  title: IDT catalog
+  # Should be the same as backend.baseUrl when using the `app-backend` plugin.
+  baseUrl: https://backstage.retail-dev.bossrevolution.com
+
+backend:
+  # Note that the baseUrl should be the URL that the browser and other clients
+  # should use when communicating with the backend, i.e. it needs to be
+  # reachable not just from within the backend host, but from all of your
+  # callers. When its value is "http://localhost:7007", it's strictly private
+  # and can't be reached by others.
+  baseUrl: https://backstage.retail-dev.bossrevolution.com
+  # The listener can also be expressed as a single <host>:<port> string. In this case we bind to
+  # all interfaces, the most permissive setting. The right value depends on your specific deployment.
+  listen:
+    port: 7007
+  csp:
+    connect-src: ["'self'", 'http:', 'https:']
+  cors:
+    origin: https://backstage.retail-dev.bossrevolution.com
+    methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
+    credentials: true
+  cache:
+    store: memory
+  database:
+    client: pg
+    connection:
+      host: ${BACKSTAGE_DB_HOST}
+      port: ${BACKSTAGE_DB_PORT}
+      user: ${BACKSTAGE_DB_USER}
+      password: ${BACKSTAGE_DB_PASSWORD}
+  reading:
+    allow:
+      - host: '*.awsqa.idt.net'
+      - host: '*.aws.idt.net'
+      - host: '*.retail-dev.bossrevolution.com'
+      - host: 'github.com'
+      - host: '*.githubusercontent.com'
+      - host: '*.mr.bossrevolution.com'
+      - host: '*.mr-dev.bossrevolution.com'
+      - host: 'ipay.awsqa.idt.net:8080'
+
+catalog:
+  rules:
+    - allow: [Component, System, Domain, API, Resource, Location, User, Group, Template]
+  providers:
+    github:
+      coretech:
+        organization: 'coretech'
+        catalogPath: '/catalog-info.yaml'
+        filters:
+          repository: '.*'
+        schedule:
+          frequency: { minutes: 60 }
+          timeout: { minutes: 10 }
+
+auth:
+  environment: np
+  providers:
+    github:
+      np: 
+        clientId: ${BACKSTAGE_GITHUB_CLIENT_ID}
+        clientSecret: ${BACKSTAGE_GITHUB_CLIENT_SECRET}
+
+integrations:
+  github:
+    - host: github.com
+      apps:
+        - appId: ${BACKSTAGE_GITHUB_APP_ID}
+          webhookUrl: ${BACKSTAGE_GITHUB_APP_WEBHOOK_URL}
+          clientId: ${BACKSTAGE_GITHUB_APP_CLIENT_ID}
+          clientSecret: ${BACKSTAGE_GITHUB_APP_CLIENT_SECRET}
+          webhookSecret: ${BACKSTAGE_GITHUB_APP_WEBHOOK_SECRET}
+          privateKey: ${BACKSTAGE_GITHUB_APP_PRIVATE_KEY}
+
+scaffolder:
+  # see https://backstage.io/docs/features/software-templates/configuration for software template options
+
+techdocs:
+  builder: 'local' # Alternatives - 'external'
+  generator:
+    runIn: 'local'
+  publisher:
+    type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
