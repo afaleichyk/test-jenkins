@@ -23,7 +23,7 @@
             sh 'docker --version'
             sh 'node --version'
             sh 'npm --version'
-            sh 'npm install yarn'
+            sh 'npm install --global yarn'
             sh 'yarn --version'
             sh 'yarn install --frozen-lockfile'
             sh 'npm run build:backend'
