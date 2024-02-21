@@ -24,10 +24,9 @@
             sh 'node --version'
             sh 'npm --version'
             sh 'npm install --global yarn'
-            sh 'yarn --version'
-            sh 'yarn install --frozen-lockfile'
-            sh 'npm run build:backend'
-            sh "npm run build-image --"
+            sh "npm run build-image -- --tag ${IMAGE_TAG}"
+            // sh "docker tag ${IMAGE_TAG} ${LATEST_IMAGE_TAG}"
+            // sh "docker push ${LATEST_IMAGE_TAG}"
         }
     }
  }
