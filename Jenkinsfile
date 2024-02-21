@@ -12,21 +12,18 @@
     }
     
     stage('build') {
-        def AWS_REGION = ""
-        def AWS_ACCOUNT = ""
+        def AWS_REGION = "us-east-1"
+        def AWS_ACCOUNT = "833915412828"
         def ECR_REGISTRY = "${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com"
-        def ECR_REPO_NAME = ""
-        def IMAGE_TAG = "test"
-        def LATEST_IMAGE_TAG = "test:latest"
+        def ECR_REPO_NAME = "backstage-test-af"
+        def IMAGE_TAG = "${ECR_REGISTRY}/${ECR_REPO_NAME}:${env.BUILD_NUMBER}"
         
         withEnv(["PATH=${env.NODEJS_HOME}/bin:${env.PATH}", "PATH+DOCKER=${env.DOCKER_HOME}/bin"]) {
-            sh 'docker --version'
-            sh 'node --version'
-            sh 'npm --version'
             sh 'npm install --global yarn'
             sh "npm run build-image -- --tag ${IMAGE_TAG}"
-            // sh "docker tag ${IMAGE_TAG} ${LATEST_IMAGE_TAG}"
-            // sh "docker push ${LATEST_IMAGE_TAG}"
+            loginToEcr("$AWS_REGION", "$AWS_ACCOUNT")
+            sh "aws ecr create-repository --repository-name ${ECR_REPO_NAME} --region ${AWS_REGION} 2>&1 || true"
+            sh "docker push ${IMAGE_TAG}"
         }
     }
  }
