@@ -20,6 +20,8 @@
         
         withEnv(["PATH=${env.NODEJS_HOME}/bin:${env.PATH}", "PATH+DOCKER=${env.DOCKER_HOME}/bin"]) {
             sh 'npm install --global yarn'
+            sh 'yarn install --frozen-lockfile'
+            sh 'npm run build:backend'
             sh "npm run build-image -- --tag ${IMAGE_TAG}"
         }
     }
