@@ -21,11 +21,6 @@
         withEnv(["PATH=${env.NODEJS_HOME}/bin:${env.PATH}", "PATH+DOCKER=${env.DOCKER_HOME}/bin"]) {
             sh 'npm install --global yarn'
             sh "npm run build-image -- --tag ${IMAGE_TAG}"
-            withAWSQa {
-            loginToEcr("$AWS_REGION", "$AWS_ACCOUNT")
-                sh "aws ecr create-repository --repository-name ${ECR_REPO_NAME} --region ${AWS_REGION} 2>&1 || true"
-                sh "docker push ${IMAGE_TAG}"
-            }
         }
     }
  }
