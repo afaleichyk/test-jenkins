@@ -22,7 +22,6 @@ import {
 import { TaskScheduler } from '@backstage/backend-tasks';
 import { Config } from '@backstage/config';
 import healthcheck from './plugins/healthcheck';
-import app from './plugins/app';
 import auth from './plugins/auth';
 import catalog from './plugins/catalog';
 import scaffolder from './plugins/scaffolder';
@@ -86,7 +85,6 @@ async function main() {
   const proxyEnv = useHotMemoize(module, () => createEnv('proxy'));
   const techdocsEnv = useHotMemoize(module, () => createEnv('techdocs'));
   const searchEnv = useHotMemoize(module, () => createEnv('search'));
-  const appEnv = useHotMemoize(module, () => createEnv('app'));
 
   const apiRouter = Router();
   apiRouter.use('/catalog', await catalog(catalogEnv));
@@ -103,8 +101,6 @@ async function main() {
     .loadConfig(config)
     .addRouter('', await healthcheck(healthcheckEnv))
     .addRouter('/api', apiRouter)
-    .addRouter('', await app(appEnv));
-
   await service.start().catch(err => {
     console.log(err);
     process.exit(1);
