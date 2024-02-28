@@ -6,10 +6,3 @@ packages/*/src
 packages/*/node_modules
 plugins
 *.local.yaml
-
-# .git
-# node_modules
-# packages/*/dist
-# packages/*/node_modules
-# plugins/*/dist
-# plugins/*/node_modules
