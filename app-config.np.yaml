@@ -32,6 +32,7 @@ backend:
       port: ${BACKSTAGE_DB_PORT}
       user: ${BACKSTAGE_DB_USER}
       password: ${BACKSTAGE_DB_PASSWORD}
+      db: ${BACKSTAGE_DB}
   reading:
     allow:
       - host: '*.awsqa.idt.net'
