@@ -70,10 +70,10 @@ integrations:
     - host: github.com
       apps:
         - appId: ${BACKSTAGE_GITHUB_APP_ID}
-          webhookUrl: ${BACKSTAGE_GITHUB_APP_WEBHOOK_URL}
+          # webhookUrl: ${BACKSTAGE_GITHUB_APP_WEBHOOK_URL}
           clientId: ${BACKSTAGE_GITHUB_APP_CLIENT_ID}
           clientSecret: ${BACKSTAGE_GITHUB_APP_CLIENT_SECRET}
-          webhookSecret: ${BACKSTAGE_GITHUB_APP_WEBHOOK_SECRET}
+          # webhookSecret: ${BACKSTAGE_GITHUB_APP_WEBHOOK_SECRET}
           privateKey: ${BACKSTAGE_GITHUB_APP_PRIVATE_KEY}
 
 scaffolder:

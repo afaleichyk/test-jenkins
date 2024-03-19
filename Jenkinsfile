@@ -1,2 +1,2 @@
-@Library('default@afaleichyk-backstage') _
+// @Library('default@afaleichyk-backstage') _
 GlobalGitFlowPipelineV2()
