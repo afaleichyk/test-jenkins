@@ -70,7 +70,7 @@ integrations:
     - host: github.com
       apps:
         - appId: ${BACKSTAGE_GITHUB_APP_ID}
-          # webhookUrl: ${BACKSTAGE_GITHUB_APP_WEBHOOK_URL}
+          # webhookUrl: ${BACKSTAGE_GITHUB_APP_WEBHOOK_URL} test
           clientId: ${BACKSTAGE_GITHUB_APP_CLIENT_ID}
           clientSecret: ${BACKSTAGE_GITHUB_APP_CLIENT_SECRET}
           # webhookSecret: ${BACKSTAGE_GITHUB_APP_WEBHOOK_SECRET}
