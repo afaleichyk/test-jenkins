@@ -58,10 +58,10 @@ catalog:
           timeout: { minutes: 10 }
 
 auth:
-  environment: development
+  environment: np
   providers:
     github:
-      development: 
+      np: 
         clientId: ${BACKSTAGE_GITHUB_CLIENT_ID}
         clientSecret: ${BACKSTAGE_GITHUB_CLIENT_SECRET}
 
