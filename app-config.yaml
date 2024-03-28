@@ -57,13 +57,12 @@ catalog:
           frequency: { minutes: 60 }
           timeout: { minutes: 10 }
 
-# auth:
-#   environment: np
-#   providers:
-#     github:
-#       np: 
-#         clientId: ${BACKSTAGE_GITHUB_CLIENT_ID}
-#         clientSecret: ${BACKSTAGE_GITHUB_CLIENT_SECRET}
+auth:
+  environment: np
+  providers:
+    github:
+      clientId: ${BACKSTAGE_GITHUB_CLIENT_ID}
+      clientSecret: ${BACKSTAGE_GITHUB_CLIENT_SECRET}
 
 integrations:
   github:
