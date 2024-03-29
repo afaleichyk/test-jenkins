@@ -61,7 +61,7 @@ auth:
   environment: np
   providers:
     github:
-      np: 
+      backstage-np.ra.idt.net: 
         clientId: ${BACKSTAGE_GITHUB_CLIENT_ID}
         clientSecret: ${BACKSTAGE_GITHUB_CLIENT_SECRET}
 
