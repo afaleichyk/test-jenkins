@@ -58,7 +58,7 @@ catalog:
           timeout: { minutes: 10 }
 
 auth:
-  environment: np
+  environment: backstage-np.ra.idt.net
   providers:
     github:
       backstage-np.ra.idt.net: 
