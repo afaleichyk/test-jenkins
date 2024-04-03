@@ -54,7 +54,7 @@ catalog:
         filters:
           repository: '.*'
         schedule:
-          frequency: { minutes: 5 }
+          frequency: { minutes: 5 } # autodiscovery
           timeout: { minutes: 5 }
 
 auth:
