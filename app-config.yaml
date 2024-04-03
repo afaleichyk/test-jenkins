@@ -54,8 +54,8 @@ catalog:
         filters:
           repository: '.*'
         schedule:
-          frequency: { minutes: 10 }
-          timeout: { minutes: 10 }
+          frequency: { minutes: 5 }
+          timeout: { minutes: 5 }
 
 auth:
   environment: development
