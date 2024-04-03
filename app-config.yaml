@@ -54,7 +54,7 @@ catalog:
         filters:
           repository: '.*'
         schedule:
-          frequency: { minutes: 60 }
+          frequency: { minutes: 5 }
           timeout: { minutes: 10 }
 
 auth:
