@@ -21,6 +21,7 @@ import {
 } from '@backstage/backend-common';
 import { TaskScheduler } from '@backstage/backend-tasks';
 import { Config } from '@backstage/config';
+import { metricsHandler } from './metrics';
 import healthcheck from './plugins/healthcheck';
 import app from './plugins/app';
 import auth from './plugins/auth';
@@ -102,6 +103,7 @@ async function main() {
   const service = createServiceBuilder(module)
     .loadConfig(config)
     .addRouter('', await healthcheck(healthcheckEnv))
+    .addRouter('', metricsHandler())
     .addRouter('/api', apiRouter)
     .addRouter('', await app(appEnv));
 
