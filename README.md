@@ -26,9 +26,9 @@ An open platform for building developer portals. [Official documentation](https:
 | development phase | active-development \| support \| deprecated |
 
 # Deployment & URL
-* Backstage is deployed to `Boss Retail Dev` account (VPC CIDR: `10.208.48.0/20`)
-* Infrastructure as code: https://github.com/coretech/rcs-iac-apps/blob/master/src/lib/stacks/dev/rcs-dev-backstage-stack.ts
-* Url: https://backstage.retail-dev.bossrevolution.com/
+* Backstage is deployed to on-prem cluster 
+* Prod Url: https://backstage.ra.idt.net/
+* Non-prod Url: https://backstage-np.ra.idt.net/
 * Auth: via github
 
 # Run locally
