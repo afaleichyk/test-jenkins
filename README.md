@@ -63,4 +63,5 @@ yarn dev
 * ECR repository: backstage-app
 * Tags: `{docker label version}` (example: 833915412828.dkr.ecr.us-east-1.amazonaws.com/backstage-app:1.0.0)
 
+test
 
